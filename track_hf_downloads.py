@@ -1,0 +1,30 @@
+import requests
+import pandas as pd
+from datetime import datetime
+import os
+
+repo_id = "anglixue/TenK10K_multiome"
+
+url = f"https://huggingface.co/api/datasets/{repo_id}"
+
+response = requests.get(url)
+data = response.json()
+
+downloads = data["downloads"]
+
+new_row = pd.DataFrame([{
+    "time": datetime.now(),
+    "downloads_last_month": downloads
+}])
+
+csv_file = "hf_download_tracking.csv"
+
+if os.path.exists(csv_file):
+    old_df = pd.read_csv(csv_file)
+    updated_df = pd.concat([old_df, new_row], ignore_index=True)
+else:
+    updated_df = new_row
+
+updated_df.to_csv(csv_file, index=False)
+
+print(updated_df.tail())

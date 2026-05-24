@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv("hf_download_tracking.csv")
 
-df["time"] = pd.to_datetime(df["time"], errors="coerce")
+df["time"] = pd.to_datetime(df["time"], format="mixed", errors="raise")
 
 plt.figure(figsize=(8,5))
 

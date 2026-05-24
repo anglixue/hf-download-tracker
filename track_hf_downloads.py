@@ -13,7 +13,7 @@ data = response.json()
 downloads = data["downloads"]
 
 new_row = pd.DataFrame([{
-    "time": datetime.now(),
+    "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
     "downloads_last_month": downloads
 }])
 

@@ -1,4 +1,5 @@
 import os
+import sys
 from datetime import datetime
 
 import pandas as pd
@@ -11,7 +12,12 @@ url = f"https://huggingface.co/api/datasets/{repo_id}"
 response = requests.get(url)
 data = response.json()
 
-downloads = data["downloads"]
+downloads = data.get("downloads")
+
+if downloads is None:
+    print("Warning: 'downloads' key not found in Hugging Face API response.", file=sys.stderr)
+    print(f"Full response: {data}", file=sys.stderr)
+    raise SystemExit(0)
 
 new_row = pd.DataFrame([
     {

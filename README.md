@@ -7,6 +7,9 @@ These counts are retrieved from the [Hugging Face dataset](https://huggingface.c
 
 <!-- download-stats:start -->
 
-Download counts will appear after the next successful workflow run.
+- Downloads in the last 30 days: **31,492**
+- Total downloads: **55,363**
+
+Last updated: 2026-11-13 08:45:03 UTC.
 
 <!-- download-stats:end -->

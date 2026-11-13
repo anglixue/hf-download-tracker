@@ -26,6 +26,9 @@ jobs:
         run: |
           pip install pandas matplotlib requests
 
+      - name: Test tracking script
+        run: python -m unittest discover -s tests
+
       - name: Run tracking script
         run: python track_hf_downloads.py
 
@@ -39,7 +42,11 @@ jobs:
 
           git add hf_download_tracking.csv
           git add hf_download_trend.png
+          git add README.md
 
-          git commit -m "Update download stats" || echo "No changes"
-
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update download stats"
+            git push
+          fi

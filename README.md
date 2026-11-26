@@ -7,9 +7,9 @@ These counts are retrieved from the [Hugging Face dataset](https://huggingface.c
 
 <!-- download-stats:start -->
 
-- Downloads in the last 30 days: **22,155**
-- Total downloads: **61,247**
+- Downloads in the last 30 days: **22,433**
+- Total downloads: **61,556**
 
-Last updated: 2026-11-25 07:40:59 UTC.
+Last updated: 2026-11-26 07:30:58 UTC.
 
 <!-- download-stats:end -->
